@@ -3,7 +3,7 @@ public class miprimerServer {
     static final String DB_URL="jdbc:mysql://localhost/Universidad";
     static final String USER="root";
     static final String PASS="root_bas3";
-    static final String QUERY="Select * From Estudiantes";
+    static final String QUERY="Select * From Estudiantes1";
 
     public static void main(String[] args) {
         try(
