@@ -19,6 +19,7 @@ public class Ingreso {
     private JTextField edad;
     private JTextField ciudad;
     private JTextField cedula;
+    private JButton actualizarButton;
     //database
     static final String DB_URL="jdbc:mysql://localhost/Principal";
     static final String USER="root";
@@ -66,6 +67,14 @@ public class Ingreso {
                 usuariox =user.getText().trim();
                 clavex = new String(psw.getPassword()).trim();
                 eliminar(idx);
+            }
+        });
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                usuariox =user.getText().trim();
+                clavex = new String(psw.getPassword()).trim();
+                actualizar(edax);
             }
         });
     }
@@ -129,6 +138,21 @@ public class Ingreso {
         ){
             stmt.executeUpdate(query2);
             System.out.println("Usuario eliminado xd");
+            System.out.println("----------------------------------------------");
+        }catch (Exception el){
+            throw new RuntimeException(el);
+        }
+    }
+
+    public static void actualizar(String edad){
+        String query2 = "UPDATE Estudiantes1 set edad = '"+25+"'"+ "where id="+'"'+ "122" +'"' ;
+        //System.out.println(query2);
+        try(
+                Connection conn = DriverManager.getConnection(DB_URL,USER,PASS); //Esencial para la conección
+                Statement stmt= conn.createStatement();
+        ){
+            stmt.executeUpdate(query2);
+            System.out.println("edad Actualizada ");
             System.out.println("----------------------------------------------");
         }catch (Exception el){
             throw new RuntimeException(el);
